@@ -104,7 +104,6 @@ const Dashboard = () => {
             </ThemedView>
 
             {/* Expense List Section */}
-            <ThemedText type="title" style={styles.sectionTitle}>Daily Activities </ThemedText>
             <FlatList
                 data={expenses}
                 keyExtractor={(item) => item.id}
