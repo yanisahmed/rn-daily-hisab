@@ -28,6 +28,7 @@ const ExpenseItem = ({ item, onEdit, onDelete, onSelect }) => (
 
 const Dashboard = () => {
     const [selectedItems, setSelectedItems] = useState([]);
+    const [addItems, setAddItems] = useState([]);
 
     const totalIncome = 1000; // Replace with real data
     const totalExpense = 625; // Replace with real data
@@ -58,6 +59,13 @@ const Dashboard = () => {
         }
     };
 
+    // Function to handle "Select All"
+    const handleAdd = () => {
+
+    };
+
+
+
     return (
         <SafeAreaView style={styles.container}>
 
@@ -66,7 +74,7 @@ const Dashboard = () => {
                 <ThemedText type="title">Today's Summary</ThemedText>
                 <View style={styles.row}>
                     <ThemedText>Total Income: </ThemedText>
-                    <ThemedText>{totalIncome} USD</ThemedText>
+
                 </View>
                 <View style={styles.row}>
                     <ThemedText>Total Expense: </ThemedText>
@@ -74,7 +82,26 @@ const Dashboard = () => {
                 </View>
             </ThemedView>
 
+            <ThemedView style={styles.summaryContainer}>
+                <ThemedText type="title">Daily Activities</ThemedText>
+                <View style={styles.row}>
+                    <View style={styles.selectAllContainer}>
+                        <Button
+                            title={"Add Item"}
+                            color='green'
+                            onPress={handleAdd}
+                        />
+                    </View>
+                    <View style={styles.selectAllContainer}>
+                        <Button
+                            title={selectedItems.length === expenses.length ? "Deselect All" : "Select All"}
+                            color='green'
+                            onPress={handleSelectAll}
+                        />
+                    </View>
+                </View>
 
+            </ThemedView>
 
             {/* Expense List Section */}
             <ThemedText type="title" style={styles.sectionTitle}>Daily Activities </ThemedText>
